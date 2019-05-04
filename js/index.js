@@ -5,11 +5,13 @@ logo.addEventListener('mouseover', (event) => {
 });
 
 // KEYDOWN
-const nav = document.querySelector('a');
-nav.addEventListener('keydown', (event) => {
-  event.target.style.color = 'blue';
+const nav = document.querySelectorAll('a');
+nav.forEach(e => {
+  e.addEventListener('keydown', (event) => {
+    event.target.style.color = 'blue';
+  });
 });
-console.log(nav)
+
 
 
 // WHEEL
@@ -71,6 +73,19 @@ input.addEventListener('focus', (event) => {
   event.target.style.background = 'pink';    
 });
 
+//Focus 2
+let buttons = document.querySelectorAll('.btn');
+console.log(buttons);
+buttons.forEach(function(i) {
+    i.addEventListener('focus', (event) => {
+        event.target.style.background = 'pink';    
+      });
+
+    i.addEventListener('blur', (event) => {
+        event.target.style.background = '';    
+      });
+});
+
 
 //RESIZE 
 const heightOutput = document.querySelector('#height');
@@ -89,4 +104,14 @@ window.onresize = reportWindowSize;
 const headerImg = document.querySelector('header img');
 headerImg.addEventListener('dblclick', (event) => {
    event.target.style.width = '50%';
+});
+
+
+
+
+//GSAP ANIMATION. Green Sock
+
+const button = document.querySelector('.btn');
+button.addEventListener('click', ()=> {
+  TweenMax.to('.destination', 1.5, {scaleY: 1.5, height: '100vh', ease: Circ.easeOut })
 });
